@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
 using System.Xml;
+using System.Text.RegularExpressions;
 
 namespace ConsoleApplication
 {
@@ -13,8 +14,8 @@ namespace ConsoleApplication
         {
             Console.WriteLine("XML");
             CreateXmlFile();
-            ReadXMLFile();
-
+            //ReadXMLFile();
+            RegexSample();
 
             Console.ReadKey();
 
@@ -49,6 +50,17 @@ namespace ConsoleApplication
             fs.Close();
             Console.WriteLine("\n End Of File");
             Console.ReadKey();
+        }
+
+        public static void RegexSample() {
+            Regex regex = new Regex(@"\d+");
+            Match match = regex.Match("Dot 25 Step");
+            if (match.Success) {
+                Console.WriteLine(match.Value);
+            }
+            
+          
+
         }
     }
 }
